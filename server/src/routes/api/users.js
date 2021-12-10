@@ -19,7 +19,7 @@ api.get("/:username", async(request, response) => {
           following: data.user.following
         },
     });
-    response.json(user)
+    //response.json(user)
 });
 
 export default api;
