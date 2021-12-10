@@ -1,29 +1,23 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
+
+datasource db {
+  url      =  "postgresql://postgres:root@localhost:5432/searchGithub"
+  provider = "postgresql"
+}
+
 generator client {
   provider = "prisma-client-js"
 }
 
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
-
-model User {
+model user {
   id String @id @default(uuid())
-  name String @unique
-  company String @unique
-  blog String @unique
-  location String @unique
-  email String @unique
-  hireable String @unique
-  bio String @unique
-  twitter_username String @unique
-  public_repos Int @unique
-  public_gists Int @unique
-  followers Int @unique
-  following Int @unique
-  created_at DateTime @default(now())
-  updated_at DateTime @default(now()) 
+  login String?
+  avatar_url String?
+  name String?
+  company String?
+  location String?
+  followers Int?
+  following Int?
 }

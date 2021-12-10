@@ -1,5 +1,6 @@
 const axios = require("axios");
 
+
 export const getAllUserData = async (username) => {
   const user = await fetchUser(username);
   const repos = await fetchRepos(username);
@@ -12,6 +13,9 @@ export const fetchUser = async (username) => {
     `https://api.github.com/users/${username}`,
     {
       validateStatus: (status) => status === 200,
+      headers: {
+        Authorization: "Bearer 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"
+      },
       responseType: "json",
     }
   );
@@ -23,6 +27,9 @@ export const fetchRepos = async (username) => {
     `https://api.github.com/users/${username}/repos`,
     {
       validateStatus: (status) => status === 200,
+      headers: {
+        Authorization: "Bearer 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"
+      },
       responseType: "json",
     }
   );
@@ -34,6 +41,9 @@ export const fetchFollowers = async (username) => {
     `https://api.github.com/users/${username}/followers`,
     {
       validateStatus: (status) => status === 200,
+      headers: {
+        Authorization: "Bearer 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"
+      },
       responseType: "json",
     }
   );
